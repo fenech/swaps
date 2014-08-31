@@ -41,7 +41,7 @@ print "$added stickers added, $removed stickers removed, $failed failed\n";
 print scalar keys %got, " stickers in $file\n";
 
 open my $out, '>', $file;
-print $out join(",", join(",", map { ("$_") x $got{$_} } sort {$a <=> $b} keys %got)), "\n";
+print $out "$_\n" for join("\n", map { ("$_") x $got{$_} } sort {$a <=> $b} keys %got);
 
 sub readlist {
     local $/;
